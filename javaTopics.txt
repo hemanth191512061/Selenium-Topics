@@ -1,0 +1,82 @@
+*All pink highleted words are keywords.
+
+*Execution starts with main method.
+*Class names cannot be a keyword or predefined class names.  
+* '+' is a concatination operator
+
+*String is immutable means it cannot altered or changed they are constants.
+
+*String buffer and string builder are mutable,they can be changed.
+
+*Stringbuffer is thread safe means it cannot allows multiple programs to modify the string at a time, string builder  is not thread safe.
+
+*string builder is faster than stringbuffer.
+
+*Arrays
+
+*Inheritance
+
+*Abstraction 
+
+*Interface
+
+*Constructor
+
+*Date and Calender
+
+*super.name to call parent variable when there is conflict.
+
+*super.method()-in child class of same method to call the parent method.
+
+*super()- to call parent class constructor in child class constructor in first line.
+
+*this.variable to get the variable present in that class.
+
+*static methods acccepts only static variables and called by class.static method not by object.
+
+*static keywords are indepent of methods.
+
+*static block is used to initialize static variables.
+
+*Final
+
+*Package 
+
+java.lang is a default package.
+
+*Default access specifier is accessed any where with in the package.
+
+*public access specifier is accessed in any of the packages.
+
+*private can be accessed with in the class only.
+
+*protected can be accessed by its child only in other packages.
+
+*Try and catch block
+
+*Finally block can execute irrespective of code pass or fail.
+
+*Finally is used when there is try block.
+
+Colletion Framework
+
+1.list  2.Set 3.Map
+
+*List is an ordered collection. It may contains duplicate values.
+
+*ArrayList,Linked List, Vector impliments List interface. 
+
+*Set - Hashset,treeset,Linked Hashset.
+
+*It doesnt accept duplicate values and it is not ordered.
+
+*Map - HashMap,HashTable.
+
+*HashMap maps key with value.
+
+*HashMap is not syncronised or not thread safe and HashTable is.
+
+*HashMap allows null values, HahTable Doesn't.
+
+HashMap uses iterator, HashTable uses enumerator.
+
