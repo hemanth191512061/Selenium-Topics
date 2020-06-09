@@ -1,0 +1,118 @@
+TestCases Specifications in Behaviour Driven Development :
+
+Step 1:
+
+Testcases should be defined in a Business level by following a ubiquitous language
+
+Ubiquitous language is a (semi-)formal language that is shared by all members of a software development team — both software developers and non-technical personnel.[15]
+
+Syntax :
+
+In order to(Achieve something)-> Business outcome
+
+As a (Role)
+
+I want to Do this
+
+Example:
+
+In order to Pay Credit Card Payment
+
+As a NetBanking sole owner who have credit section access
+
+I want to Navigate to credit card section, Enter amount and process my Payment
+
+Step 2:
+
+Its time to Decide what Test cases are sufficient to certify Business Scenario working
+
+Syntax for Writing Testcases:
+
+Given (what you need to have to perform action), -Prerequists
+
+When (performs action)- Action
+
+Then (the desired outcome for the user).- Validation
+
+Example:
+
+Given : An account with zero balance
+
+When: I navigate to Credit card Payment Section and click on submit bu giving amount
+
+Then : It should throw error message –fund
+
+Given : An account with sufficent balance who does not have credit card
+
+When: I navigate to Credit card Payment Section
+
+Then :You don't have to access as your are error message
+
+Given : An account with sufficent balance who does not have credit card
+
+When: I navigate to Credit card Payment Section and amount
+
+Then :You don't have to access /error message
+
+Advantages:
+
+This can be used as Standard Template where all QA can stick to one common standards of defining Testcases
+
+Each Scenario reflects a Business Value
+
+We can estimate the Test coverage happened for Each Business outcome by going through Test Cases
+
+We can tag these Annotations to Selenium Automation and execute the Business Testcases
+
+Common Standardised Testcase template for both Manual and Automation testing
+
+////////////////////////cucumber files//////////////////////////
+*feature file----used to write scenarios and test cases of bussiness requirements
+
+ Feature: get into the login page 
+
+Scenario Outline:Check the login is working correctly or not
+
+Given intialize the browser
+Then Enter the url "http://www.qaclickacademy.com"
+When the user enter the <username> and <password> to login
+And Exit the browser
+
+Examples:
+
+|username                 |password|
+|b.hemanth1997@gmail.com  |1234|
+|b.hemanth1996@gmail.com  |12345|
+
+
+
+*stepdefination---it is the code that is defination of test cases of feature file
+*Testrunner---it is used to link both feature and stepdefination file
+package Testrunnerfile;
+
+import org.junit.runner.RunWith;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+import cucumber.api.testng.AbstractTestNGCucumberTests;
+
+//@RunWith(Cucumber.class)
+@CucumberOptions(
+		features="src/test/java/Features",
+		glue="stepDefinationFile"
+		
+		)
+
+public class Test_runner extends AbstractTestNGCucumberTests {
+
+}
+
+*Tidygerkin is used to get automatic stepdefinations
+*cntrl and click on that link is a short cut to go the step defination
+/////////////////////////////////jars required in pom file////////////////////////
+*selenium-java(selenium-maven)
+*junit
+*cucumber-junit
+*cucumber-java
+
+
