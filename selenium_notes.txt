@@ -1,0 +1,340 @@
+*To access any method in another class we need to create that object of the class.
+
+//////////contains keyword of xpath and css selector//////////////////
+xpath:
+//*[contains(@id,'ema')]
+cssSelector:
+[name*='pas']
+
+
+///////////sibling and parent concept/////////////////////
+By.xpath("//div[@class='placeholder']/following-sibling::input")
+By.xpath("//div[@class='placeholder']/parent::div")
+
+
+////////////////cssSelector///////////////////
+#id
+.class
+10times faster than xpath
+
+
+////////////////dynamic dropdown/////////////////
+(//a[@value='MAA'])[2]--if element path is same 
+//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']--parent child relationship
+*coumpound class names with space replaced with (.)
+
+////////////////assertions////////////
+
+Assert.assertFalse(Boolean_value)------it accept false boolean value if not test is failed
+
+Assert.assertTrue(Boolean_value)------it accept true boolean value if not test is failed
+
+Assert.assertquals(actual value,expected value)
+
+////////////////////checking atribute value contains---///////////////////////////////
+By.id("ctl00_mainContent_view_date2")).getAttribute("style").contains("0.5")
+
+
+//////////////////////////code formatting////////////////////////
+class should start with capital(Pascal case). ex--Newjavaclass
+method,variable names should be Camel case. ex: newJavaClass
+
+//////////////////////debug the code//////////////////////////
+*To check the code line by line
+*break point are used
+*resume,stepover,stepin are used to continue with the code
+
+
+///////////////////alerts////////////////////////
+web.switchTo().alert().accept();
+web.switchTo().alert().dismiss();
+web.switchTo().alert().accept().getText();
+
+//////////////////////array to arraylist convert///////////////////////
+
+List variable_name=Arrays.asList(array_name);
+
+*To create arraylist
+ArrayList<String> original_array= new ArrayList<String>();
+
+*collection class is used to do sort and reverse etc., on arraylist
+Collections.sort(duplicateArray);
+ Collections.reverse(duplicateArray);
+
+////////////////////To split and trim the text//////////////////////////////////
+String[] name=elements.get(i).getText().split("-");
+String formattedName=name[0].trim();
+
+
+//////////////Implicit and explicit wait////////////////////////
+Implicit wait 
+*Code is easy and readable.
+*it is declared at globally.
+*performance issues are not caught.
+*web.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+*it can not wait more than 10 sec because it slow down the application test.
+*5 sec is recommended to use.
+
+Explicit wait
+*code is littlebit complicated.
+*it is defined at particular element to wait.
+*there is no performance issue.
+*WebDriverWait wait = new WebDriverWait(web, 5);
+*wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".promoCode")));
+
+Fluent wait
+*It is same as explicit wait.
+*It check the presence of web element at regular intervel of time.
+*Fluent wait and Explicit wait are two seperate classes implements wait interface.
+
+//////////////////Actions////////////////////////////////////////////
+Actions act=new Actions(web);
+		act.moveToElement(web.findElement(By.cssSelector("#nav-link-accountList"))).contextClick().build().perform();
+		act.moveToElement(web.findElement(By.id("twotabsearchtextbox"))).click().keyDown(Keys.SHIFT).sendKeys("hello").doubleClick().build().perform();
+
+
+*doubleClick() is used to double click;
+*contextClick() is to right click on mouse
+     
+*act.dragAndDrop(web.findElement(Source WebElement,Target WebElement)).build().perform();
+
+*Actions must be 'build' and 'perform' to perform action
+
+/////////////////////////////Switch between windows/////////////////////////////////////
+	Set<String> handle=web.getWindowHandles();
+	Iterator<String> iterate=handle.iterator();
+	   String ParentId=iterate.next();
+	   String childId=iterate.next();
+	   Thread.sleep(5000);
+		web.switchTo().window(childId);
+
+
+ while(iterate.hasNext()) {
+                    	
+                    	 web.switchTo().window( iterate.next());
+                    	 System.out.println(web.getTitle());
+                    	 
+                    	 
+                    	 
+                     }
+
+
+*To open the link in new tab syntax
+                    sendKeys(Keys.chord(Keys.CONTROL,Keys.ENTER))
+
+/////////////////////////footer link///////////////////////////////////////////////////////////
+WebElement footer_links=web.findElement(By.id("gf-BIG"));
+
+footer_links.findElements(By.tagName("a")).size()---it is used to limit the driver limit 
+
+//////////////String to integer convert///////////////////////////////////////////
+
+*Integer.parseInt(String variable)
+*Integer to string
+*IntegerToTextCoverter.toText(Integer);------------------provided by apachee poi
+*Integer.toString(value).
+/////////////////////////JavascriptExecutor///////////////////////////////////
+*JavascriptExecutor is used to find hidden elements
+*it is a javascript code executed by JavascriptExecutor class
+
+syntax:
+JavascriptExecutor java= (JavascriptExecutor)web;
+		String value="return document.getElementById(\"fromPlaceName\").value;";////it is script
+		String text=(String) java.executeScript(value);//here it execute and returns string
+
+/////////////////////Screenshot/////////////////////////////////////////////////////
+
+ * this typecast the driver and take screenshot and stores as file format
+ File src=((TakesScreenshot)web).getScreenshotAs(OutputType.FILE); this typecast the driver and take screenshot and stores as file format
+
+ *it is used to get the screenshot in local desk by creating folder
+ FileUtils.copyFile(src, new File("C://users//chinni//Screenshot.png"));
+
+/////////////////////////////SSl certifications/////////////////////////////////////////
+ DesiredCapabilities ch=new DesiredCapabilities();
+        ch.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+        ch.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+        //local chrome browser
+		ChromeOptions ch1=new ChromeOptions();
+		
+		ch1.merge(ch);
+		System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver.exe");
+		WebDriver web = new ChromeDriver(ch1);
+
+
+///////////////////// selenium grid ////////////////////////////
+*java -jar grid_version.jar -role hub  ------- to the machine as hub through command prompt
+*we can connect to hub through node machine command prompt only.
+*java -Dwebdriver.chrome.driver="path"-jar grid_version.jar -role webdriver -hub ipaddress/grid/register -port 5555
+
+DesiredCapabilities dc= new DesiredCapabilities();
+        dc.setBrowserName("chrome");
+        dc.setPlatform(Platform.WINDOWS);
+        WebDriver web=new RemoteWebDriver(new URL("https://localhost:4444/wd/console"),dc);
+        web.get("https://www.google.com");
+
+
+//////////////////////////////TestNg///////////////////////////////////////
+*TestNG is a testing framework inspired from JUnit and NUnit but introducing some new functionalities that make it more powerful and easier to use
+*In XML file it has Test Suite->Test folder(module or shell)->Test classes 
+*exclude is used to remove a method from execution.
+  <exclude name="method_name"/>
+*name.* is used to remove a any method of same name of first word from execution.
+*Include is used include a perticular method to execute.
+  <include name="method_name"/>
+
+Anatotions
+@BeforeSuite
+@BeforeTest
+@BeforeClass
+f@BeforeMethod
+@AfterSuite
+@AfterTest
+@AfterClass
+@AfterMethod
+------------groups--------
+*groups is used to group and run the test cases
+---in class 
+*in xml file
+<groups>
+<run>
+<include name="lead"/>
+</run>
+</groups>
+
+----------depends---------
+*if any method to run before another method
+*@Test(dependsOnMethods= {"staff"})
+--------------enabled-------
+enabled=false to skip that test case.
+@Test(enabled=false)
+
+------------------parameter-----------------------
+<parameter name="website" value="google.com"/>----in xml file may be after suite or after test folder
+@Parameters({"website","key"})
+	@Test
+	public void staff(String website, String keys) 
+
+-------------------------dataprovider--------------------------------
+@Test(dataProvider="dataset")
+	public void Vicechairman(String user,String password)
+@DataProvider
+	public Object dataset(){
+		
+		Object[][] data=new Object[3][2];
+		data[0][0]= "nani";
+		data[0][1]= "1234";
+		data[1][0]= "hemanth";
+		data[1][1]= "123";
+		data[2][0]="reddy";
+		data[2][1]= "321";
+		return data;
+		}
+*Test can be run parallel="test" or parallel is "class"with thread-count
+*listeners are used to executed after the test cases
+              *Types of listeners are
+OnStart- OnStart method is called when any Test starts.
+onTestSuccess- onTestSuccess method is called on the success of any Test.
+onTestFailure- onTestFailure method is called on the failure of any Test.
+onTestSkipped- onTestSkipped method is called on skipped of any Test.
+onTestFailedButWithinSuccessPercentage- method is called each time Test fails but is within success percentage.
+onFinish- onFinish method is called after all Tests are executed.
+////////////////////////////Maven////////////////////////////////////////////////////////
+*Download Maven.
+*Set Path in environment variable.
+*pom file is used to run test cases.
+*we need to provide dependencies to pom file to download the jar file and keep in m2 folder in your workspace.
+*we can run through command prompt.
+*mvn clean to clean the workspace.
+*mvn compile to compile the project
+*mvn test.
+*we can also provide profile to run alternate code.
+*mvn test -P(profile name).
+*mvn test -Dbrowser=chrome-----parameter through command.
+
+command used to create maven project through command prompt 
+*mvn archetype:generate -DgroupId=Name -DartifactId=Name -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=flase
+*cd to artifactId name and type mvn eclipse:eclipse and import the project in eclipse.
+
+////////////////////////////////////Jenkins/////////////////////////////////////////////
+*It is to compile and execute the script or code automatically.
+*we can also provide time at which u want to run the code.
+*U need to download the jenkin and run with java -jar jenkins.jar --httpPort=8080
+*Need to go to local server.
+*Place the project in jenkins folder.
+*$(JENKINS_HOME)/Project name  as directory.
+*after 
+///////////////////////////Data Driven through excel/////////////////////
+
+*Apachi poi API provide Data Driven through excel
+*Apachi ooxml, Apachi poi two jars are used
+///////////////////////////////////////Log4j////////////////////////////////////////
+*Log4j is reliable,fast and flexible logging framework(API'S) written in java distributed by apache software license.
+*This jar is used to log the information about the execution 
+*It is used to log errors or debug information and fatal errors into console or seperate file.
+
+*private static final Logger log1=  LogManager.getLogger(Demo1.class);
+*we want to define configuaration file(log4j2.xml file) for logging the defects.
+*Appender tag is used where to log and how to log the information.
+*Loggers tag is uesd to what to log.
+
+//////////////////////////////////Page Object Model////////////////////////////////////////
+*Page Object Model is design pattern where webpages are defined as a classes and elements are defined as variables on the class.
+*Easy to maintain.
+*Easy readability of scripts.
+*Reduce or eliminate duplicacy.
+*Re-usuability of code.
+*Reliability.
+
+
+//////////////////////////////encapsulation & Extend & interface & Static///////////////////////////////////////
+
+*It means hiding the data implementation by restricting access only to its accessable public methods.
+
+*Here variables are declared as private and methods are declared as a public to access the variables.
+
+*Extend to used to get methods to parent to child class.
+
+*Interface is a class where method are declared with empty body.
+
+*Any classes can implements those methods present in Interface. 
+
+*Static variable is stored in heap section and its saves memory and it is used throughout the execution.
+*Static variable is not used for parallel test running.
+
+///////////////////////////No need to hard code//////////////////////////////////////
+
+*system.getProperty("user.dir") is used to get system containing folder path.
+
+*system.setProperty("value holder","value")---to set the property.
+
+*fileoutputstream is used to write the file.
+prop.store(fileoutputstream object)
+
+*Extend report and listener is location is given in testng listeners tag.
+
+*Any resources you want to execute while running we will define it path in resource tag in pom file
+
+/////////////////////////////////git/////////////////////////////////////////
+
+*Install git in your local mission
+*Need github account.
+*Atlassian git commands link has git commands.
+
+////////////////////////////////////////Database connection////////////////////////////////
+
+*Install sql database.
+String url="jdbc:mysql://localhost:3306/nani";
+	//Class.forName("com.mysql.jdbc.Driver");
+	Connection connect=DriverManager.getConnection(url,"root","Hemanth143");----------connect to the sql database.
+	
+	Statement s=connect.createStatement();-------------statements to send to get queary
+	ResultSet result=s.executeQuery("select * from employeeinfo where name='hemanth';");------------result stored in result object.
+	result.next();
+	System.out.println(result.getString("name"));
+	System.out.println(result.getString("location"));
+
+
+
+
+
