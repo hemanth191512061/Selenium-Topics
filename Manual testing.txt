@@ -1,0 +1,128 @@
+*Agile is a development methodology for SDLC.
+*Jira and Bugzilla are the tools used for test management.
+*In Agile Scrum and Kanban framework is used but scrum is mostly used.
+*In Agile team 1 product owner, 1 Scrum master, 5 develepors, 2 testers.
+*Epic is high level requirment that achieved.
+*User Stories are small unit of work belongs to epic.
+*Components tells abouts the teams to which stories are attached.
+*Stories with are yet to develop are in dashboard.
+*User stories are written in simple language outlines the desired outcomes.
+*As a [personal], i want to[],So that[] description.
+*It is product owner responsibility to create epic, user stories and description.
+*Acceptance criteria is decided by the entire team.
+*Backlog grooming is used to groom the user stories that is work to do for each user stories.
+*Sprint planning-- Planning of how and when to complete sprint.
+*Sprint--Allocated work with some story point with in certain time.
+*Reports
+*Standup meeting--General discussion about project.
+*Retrospection--what well good & what well bad.
+
+Software Testing Life Cycle(STLC)
+
+*Requirement Analysis--To get details about the requirments of client.
+
+*Test Plan--It is a document that contain the activities to be done in testing to deliver a quality project.
+It is done by Team lead or Sr QA.
+
+What to plan
+1.What to be tested.
+2.what not to be tested.
+3.Whats are the tools needed & environment,Infratructure.
+4.Staffing and training.
+5.Testing duration.
+6. risk and contingencies
+
+*Test case Development
+Here Test cases are developed and also test data is prepared. All test cases are peered by sr Qa or team lead.
+Requirement tracebility matrics--used to map the test cases against Requirements to check all the requirements are covered.it is done at the end of the sprint.
+
+*Test environment
+Here test server is setup with database inside to test the code test environment.
+
+*Test Execution
+Execution of test cases and reporting bugs.
+
+*Test Closure
+Done after project deployment.
+1.Test case completion check
+2.Handover Test artifacts.
+3.Project Retrosection.
+4.Archive test work products.
+
+Testcase Writing
+1.Testcase ID
+2.Testcase Name
+3.Testcase Description
+4.Bussiness Requirement ID
+5.Preconditons 
+6.Test Execution steps--Action,Expected result,Status
+
+
+Troubleshooting options when application is not working
+1.Network tab for backend functions
+2.console tab for frontend Functions.
+3.App server logs
+
+
+Defect Report
+1.Steps to reproduce
+2.TestData
+3.Expected result
+4.Actual result
+5.Time Stamps
+6.Troubleshoot thoughts.
+7.Screenshot.
+
+Severity 
+To what extent the defect affects the software
+1.Critical
+When the application stops working further
+2.Major
+when one of the functionality is not working.
+3.Medium
++
+Defect not effecting functionality.
+4.Low
+it wont cause major break down.
+
+Priority
+The order in which defect to be fixed.
+
+DefectTriage Meeting
+Discuss among PO,Dev manager, QA, BA about priority and severity of defect.
+
+Regression Testing
+Smoke Testing or sanity Testing
+Component Testing
+Integration Testing
+Verification and validation
+Load testing and Stress Testing
+
+Functional Requirments
+These are the requirments used to build a software.
+
+Non Functional Requirments
+These are used to check the performance, Scalabilty,Usability,recoverability, Security, Reliability of the system.
+
+Adhoc Testing
+Random Testing after knowing the application
+
+Exploratory Testing
+Random Testing without knowing the application
+
+Blackbox Testing
+Here Coding Knowledge is not required to test the application and functionality or behaviour is tested,Implementation is hiden from the tester.
+
+Whitebox Testing
+Here Coding Knowledge is required to test the application,logic and Implemention of Software is tested.
+Done by Developers.
+ 
+Sanity Testing
+Testing the application after the changes made to the application or when ever bugs have been fixed.
+
+Retesting
+Testing the bug fixed feature in the application.
+
+Test Pyramid--make testing faster by executing testcases faster.
+
+Test Pyramid priority------1.unit test 2.Integration Testcase 3.UI Testcase(end-end Testcase).

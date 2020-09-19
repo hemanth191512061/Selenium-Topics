@@ -1,0 +1,86 @@
+*SQL injection means sending the malicious sql statements to the server to know to details of the database. 
+
+*Http
+*Get and post are two methods in http
+*Get is used to get the information from server
+*Post is used to submit the information(data) to the server.
+
+*Http+ssl(secure socket layer)=Https
+*Both are connectionless and stateless
+
+*Fidler is web debugging tool used to monitor taffic between server and client. 
+
+*Cross site scripting(XSS) is used to attack web application by submitting own client site scripts to the server
+and the data
+*Areas to submit code
+1.url post string
+2.form submission
+3.Text areas.
+*JavaScript and HTML is used to hack the data.  
+
+*Reflected xss which means what we entered in data field is reflecting in view page source code and it is 
+erased after page refresh.
+
+*Persistence xss means what we entered in data field is permenently storing in the database(ex: comments)
+
+*Persistence xss is more dangerous than reflected xss.
+
+*IE 8 and 9 version has a mechanism to stop xss by x-xss protection:1(By default 1)--front end filtering
+*We can also enable xss by making x-xss protection:0
+
+*cookies are the small amount of data get stored in the web browser(chrome) in the form of text file when
+  ever u browsed into the any application.
+*This are concatinated with http statement and send to the server. 
+
+*Cookies and Session cookies.
+*Methods used to avoid hacking of cookies from xss.
+1.Secure Attribute.
+2.Httponly Attribute.
+3.Domain Attribute.
+4.Path Attribute.
+5.Expire Attribute.
+
+*Session Hijacking & cross site request forgery attacks(CSRF)--free phones links in any website extra.
+*To avoid this, cryptographic tokens are used these are hidden tokens that are unique and compared with the session Id
+ and they are matched next page is displayed else navigate to wrong page.
+
+*What we need to as a Pen Tester to check CSRF?
+Check whether confidential data is going as part of POST
+Check whether hidden field is set for the data submissions
+Change the cookie token value and sent the request,It should not accept
+Open the Site in other System,.Get the Token id of that session and use it in current session to submit the request – It should not accept
+Use same values for both the tokens (hidden field and cookie ) and submit – It should not accept
+Make sure this Anti forgery tokens are set for all the confidential data submissions.
+
+*Parameter Tamparing, means changing the parameter of attributes and submitting.
+*It applies in cookies,form fields,URL,HTTP Headers 
+
+*Server side Validation also be done after client side validation(fidler tool can be used to interact with server.
+
+*Account Security
+1.setting unique and strengthen password
+2.passwordmeter.com is used to check the strength of the password.
+ 
+*http://www.dazzlepod.com/site_media/txt/passwords.txt has list of general password which are hacked.
+
+Sources of Attacking Passwords :
+
+1.Main in the middle attack
+
+2.Password retrieved as a cookie with XSS
+
+3.Account brute forced via HTTP Post
+
+4.Admin facility compromised
+
+5.SQL injection risk exploited
+
+Best Practises to be followed in Securing Account Details
+
+1.Emailing credentials on account creation
+2. Forgot password message display methods.
+3. password reset mail consequences.
+4. Password storage Pattern.
+5 Remember me password.
+6. ReAuthenticate few imp features.
+7. Bruteforce attack handling Mechanisim.

@@ -1,0 +1,93 @@
+SQL means Structured query Language.
+SQL is language used to communicate with the Database.
+SQl is used to insert,update,remove the data in Database
+Database is a collection of Table.
+Tables contain rows and colums, each row called record.
+Database is collection of data or information.
+Oracle,Microsoft Sql Server, Mysql are the various databases.
+
+Order  Server-->Database-->Table-->records.
+
+*create the database
+*Use the Database
+*Create the Table with Fields.
+*insert records.
+
+*Descride keyword describes outer Structure of the table.
+*Select is used to retrive data from the database.(select column name from table name where column condition)
+*In sql * denote all.
+*Where is used for all conditions.
+
+*Can add duplicate records to table.
+*Distinct is used to select unique values.
+*In operator is used to print records which are present in table which are also in operator.
+
+*In is a alternative for or operator.
+
+*Between and not between operator(between 2 and 5----2,3,4,5).
+
+* % and - are called as wildcards used with 'like' operator and are used to pull up the data. 
+
+* % used after character for any character(b%) first letter b after any character.
+
+* -b means first any single character seconf is b.
+
+* --c%, -c-. 
+
+*alter keyword is used to add column or modify any column.
+
+*alter is used to change the table structure.
+
+*add, update, drop used along with alter.
+
+*update keyword is used to update the data inside the table.
+
+*Order by is used to sort the table contents.
+
+*Order by column desc used to get in descending order. 
+
+*group by with aggregate used to do sum,max,min,avg ...like functions
+
+*sum(month) is a aggregate function to calculate sum.
+
+*Having is a keyword used for group results.
+
+*where in group is used before grouping or making group with conditions.
+
+*In subquery there must be one common column to match in both the table and we write queries regarding to that.
+
+*Joins keyword is used to join the two tables with same column reference
+select c.name, cl.location,c.age from citizen as c join citizenloc as cl on c.name=cl.name where location="canada";
+
+Alter table table_name change old new int;
+
+Joins--------->inner join--only matched items are formed
+               Left Join--All left table values present if it not mapped with the right table then it be Null
+               Right Join--All right table values present if it not mapped with the left table then it be Null
+
+*View is a virtual table created from parent table.
+
+* As is used to rename the name column or alias names.
+
+*delete is used to delete record.
+
+*Is null is used to assign null
+
+*union is used to select all the elements from the two tables but displays common values once.
+
+*union all is used to select all the elements from the two tables.
+
+*intersect is not a keyword used to select common elements using where in.
+
+*Exists is a keyword used to select table if the selected record is present. 
+
+*Case keyword is used to update the table with new values
+*It contains when,then,else,end "newtable column".
+
+*SQL Constraints decides what type of data to be allowed into the table.
+*Constraints are NOTNULL,DEFAULT,UNIQUE,CHECK,PRIMARY KEY must be unique and notnull.
+
+*Foreign key in one table will refer to the primary of other table.
+*Foreign key in one table check the presence of that key in primary of other table.
+*primary key record cannot be deleted without deleting foreign key record but it is possible by ON DELETE CASCADE;
+
