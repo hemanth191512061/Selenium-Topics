@@ -62,8 +62,8 @@ select c.name, cl.location,c.age from citizen as c join citizenloc as cl on c.na
 Alter table table_name change old new int;
 
 Joins--------->inner join--only matched items are formed
-               Left Join--All left table values present if it not mapped with the right table then it be Null
-               Right Join--All right table values present if it not mapped with the left table then it be Null
+               Left Join--All left table values present and if right table values matches with left table then only values present otherwise it return NULL values 
+               Right Join--All right table values present and if left table values matches with right table then only values present otherwise it return NULL values
 
 *View is a virtual table created from parent table.
 
@@ -87,7 +87,10 @@ Joins--------->inner join--only matched items are formed
 *SQL Constraints decides what type of data to be allowed into the table.
 *Constraints are NOTNULL,DEFAULT,UNIQUE,CHECK,PRIMARY KEY must be unique and notnull.
 
+*Primary key is applied only for one record in a table and it is known as parent values.
+*It cannot be NULL and duplicate.
 *Foreign key in one table will refer to the primary of other table.
 *Foreign key in one table check the presence of that key in primary of other table.
+*Foreign key can be duplicate and can have NULL values, it can applied on multiple fields in a table
 *primary key record cannot be deleted without deleting foreign key record but it is possible by ON DELETE CASCADE;
 
