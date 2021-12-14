@@ -1,4 +1,4 @@
-//SQL
+//SQL---Resource W3Schools
 SQL means Structured query Language.
 SQL is a standard language for accessing and manipulating databases.
 SQL is language used to communicate with the Database.
@@ -48,6 +48,99 @@ Eg: SELECT CustomerName, City FROM Customers;--to select individual fields from 
 Eg: SELECT DISTINCT column1, column2, ...
 FROM table_name;
 *SELECT COUNT(DISTINCT Country) FROM Customers;--to count distint coulmn fields and this cannot work in Microsoft Acess databases(Ex. firefox)
+
+//The SQL WHERE Clause
+*The WHERE clause is used to filter records.
+*It is used to extract only those records that fulfill a specified condition.
+*The WHERE clause is not only used in SELECT statements, it is also used in UPDATE, DELETE, etc.
+*In where statement text assigned in Quotes and number is in normal.
+Eg: SELECT * FROM Customers WHERE Country='Mexico';
+
+//The SQL AND, OR and NOT Operators
+*The WHERE clause can be combined with AND, OR, and NOT operators.
+*AND displays record if both the conditions are true
+*OR displays record if one of the condition is true
+*NOT displays record if the condition is false
+Eg: SELECT column1, column2, ... FROM table_name WHERE condition1 AND condition2 AND condition3 ...;
+                                                 WHERE condition1 OR condition2 OR condition3 ...;
+                                                 WHERE NOT condition;
+
+Eg2: SELECT * FROM Customers WHERE Country='Germany' AND City='Berlin';
+    SELECT * FROM Customers WHERE City='Berlin' OR City='München';
+    SELECT * FROM Customers WHERE NOT Country='Germany';
+    SELECT * FROM Customers WHERE Country='Germany' AND (City='Berlin' OR City='München');
+    SELECT * FROM Customers WHERE NOT Country='Germany' AND NOT Country='USA';
+
+//Operators in SQL
+Operator	Description	Example
+=	Equal	
+>	Greater than	
+<	Less than	
+>=	Greater than or equal	
+<=	Less than or equal	
+<>	Not equal. Note: In some versions of SQL this operator may be written as !=	
+BETWEEN	Between a certain range	
+LIKE	Search for a pattern	
+IN	To specify multiple possible values for a column
+
+//The SQL ORDER BY Keyword
+*The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+*The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+Eg: SELECT column1, column2, ... FROM table_name ORDER BY column1, column2, ... ASC|DESC;
+    SELECT * FROM Customers ORDER BY Country DESC;
+    SELECT * FROM Customers ORDER BY Country, CustomerName;--here if country values are same then it orders by CustomerName
+    SELECT * FROM Customers ORDER BY Country ASC, CustomerName DESC;
+   
+//The SQL INSERT INTO Statement
+*The INSERT INTO statement is used to insert new records in a table.
+Eg: INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);--one way
+    INSERT INTO table_name VALUES (value1, value2, value3, ...);---here columns are not mentioned and values are inserted according to the column number
+
+Note:
+*There will be autoincrement columns like IDs
+*If some column values are not inserted against column names then those column fields take NULL values 
+
+//SQL NULL Values
+*A field with a NULL value is a field with no value.
+*A NULL value is different from a zero value or a field that contains spaces. A field with a NULL value is one that has been left blank during record creation!
+*NULL values are used to update or insert new record without adding any value
+*IS NULL & IS NOT NULL is used to test the null values
+
+Eg: SELECT column_names FROM table_name WHERE column_name IS NULL|IS NOT NULL;
+    SELECT CustomerName, ContactName, Address FROM Customers WHERE Address IS NULL;
+    
+ //The SQL UPDATE Statement
+ *The UPDATE statement is used to modify the existing records in a table.
+ Eg: UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
+     UPDATE Customers SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
+ *Update keyword must be used with where class otherwise all records are updated
+ 
+ //The SQL DELETE Statement
+ *The DELETE statement is used to delete existing records in a table.
+ *If we wont specify where class all records are deleted.
+ Eg: DELETE FROM table_name WHERE condition;
+     DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+     DELETE FROM table_name;
+     
+//SQL TOP, LIMIT, FETCH FIRST or ROWNUM Clause
+*The SELECT TOP clause is used to specify the number of records to return.
+*It is used on large number
+
+MS Access & SQL Server
+Ex: SELECT TOP number|percent column_name(s) FROM table_name WHERE condition;
+    SELECT TOP 3 * FROM Customers;
+    
+MYSQL
+Ex: SELECT column_name(s) FROM table_name WHERE condition LIMIT number;
+    SELECT * FROM Customers LIMIT 3;
+    
+Oracle
+Ex: SELECT column_name(s) FROM table_name ORDER BY column_name(s) FETCH FIRST number ROWS ONLY;
+    SELECT * FROM Customers FETCH FIRST 3 ROWS ONLY;
+    
+
+
+
 
 
 Order  Server-->Database-->Table-->records.
