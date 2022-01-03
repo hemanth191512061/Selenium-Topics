@@ -138,9 +138,22 @@ Oracle
 Ex: SELECT column_name(s) FROM table_name ORDER BY column_name(s) FETCH FIRST number ROWS ONLY;
     SELECT * FROM Customers FETCH FIRST 3 ROWS ONLY;
     
+    
+//The SQL MIN() and MAX() Functions
+The MIN() function returns the smallest value of the selected column.
+Ex: SELECT MIN(column_name) FROM table_name WHERE condition;
+    SELECT MIN(Price) AS SmallestPrice FROM Products;
 
+The MAX() function returns the largest value of the selected column.
+Ex: SELECT MAX(column_name) FROM table_name WHERE condition;
+    SELECT MAX(Price) AS LargestPrice FROM Products;
+    
+//The SQL COUNT(), AVG() and SUM() Functions
+The COUNT() function returns the number of rows that matches a specified criterion.
+Ex: SELECT COUNT(column_name) FROM table_name WHERE condition;
 
-
+The AVG() function returns the average value of a numeric column. 
+    
 
 
 Order  Server-->Database-->Table-->records.
