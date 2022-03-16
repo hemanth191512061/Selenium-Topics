@@ -100,7 +100,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(
 		features="src/test/java/Features",
 		glue="stepDefinationFile"
-		
+		tags="(@Smoketest or @Important) and @RegressionTest"---used to run particular scenarios with mentioned tages
 		)
 
 public class Test_runner extends AbstractTestNGCucumberTests {
@@ -114,5 +114,10 @@ public class Test_runner extends AbstractTestNGCucumberTests {
 *junit
 *cucumber-junit
 *cucumber-java
+///////Hookes////////////////
+*Eg: @Before, @After, @BeforeSteps, @AfterSteps
+
+
+
 
 
