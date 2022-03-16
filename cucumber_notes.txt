@@ -123,6 +123,12 @@ public class Test_runner extends AbstractTestNGCucumberTests {
 *@Before("@Smoke")--then before hook executes only for Smoke feature tage
 *@Before(value="@Smoke", order=0)--hook with condition & tag
 
+////Background//////
+*Background is just like scenerio, common steps need to execute for every scenario is placed in Background
+*For every scenario before that background will execute
+*Background section is visible to the user
+
+
 
 
 
