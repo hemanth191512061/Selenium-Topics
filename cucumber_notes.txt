@@ -116,6 +116,13 @@ public class Test_runner extends AbstractTestNGCucumberTests {
 *cucumber-java
 ///////Hookes////////////////
 *Eg: @Before, @After, @BeforeSteps, @AfterSteps
+*Hookes with condition @Before(order=0),@Before(order=1), @After(order=0), @After(order=1)--here 1 executes first and then 0 --reverse order for After
+*We can also have negative order
+
+*Hookes with tags
+*@Before("@Smoke")--then before hook executes only for Smoke feature tage
+*@Before(value="@Smoke", order=0)--hook with condition & tag
+
 
 
 
