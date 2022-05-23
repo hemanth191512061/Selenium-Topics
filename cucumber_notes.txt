@@ -6,6 +6,10 @@ Testcases should be defined in a Business level by following a ubiquitous langua
 
 Ubiquitous language is a (semi-)formal language that is shared by all members of a software development team — both software developers and non-technical personnel.[15]
 
+*Cucumber is a testing approach which supports Behavior Driven Development (BDD).
+*It explains the behavior of the application in a simple English text using Gherkin language.
+*download to get the ‘Cucumber Core’ jar file.--infocukes jar file
+
 Syntax :
 
 In order to(Achieve something)-> Business outcome
@@ -53,6 +57,21 @@ Given : An account with sufficent balance who does not have credit card
 When: I navigate to Credit card Payment Section and amount
 
 Then :You don't have to access /error message
+
+*Creating feature file
+Feature: Reset functionality on login page of Application --In this line we write business functionality.
+
+
+Scenario: Verification of Reset button -- In this line we write a scenario to test.
+
+
+Given Open the Firefox and launch the application--In this line we define the precondition.			
+
+
+When Enter the Username and Password	-- In this line we define the action we need to perform.		
+
+
+Then Reset the credential-- In this line we define the expected outcome or result.
 
 Advantages:
 
