@@ -333,6 +333,334 @@ String url="jdbc:mysql://localhost:3306/nani";
 	result.next();
 	System.out.println(result.getString("name"));
 	System.out.println(result.getString("location"));
+	
+	
+	
+Part 2
+//button[text()='ADD TO CART']--xpath by text
+//tr[@class='rb-monthHeader']--by class name
+
+tr[id=""]
+
+# shortcut for id in css selector
+
+. shortcut for class in css selector
+
+//button[contains(text(),'PROCEED TO ')]--contains keyword
+
+element.sendKeys(Keys.ENTER);--to send keys through send keys command
+
+web.manage().deleteAllCookies();--to delete cookies before opening and website
+web.manage().deleteCookieNamed("coolieName");--to delete specific cookie
+
+Actions action= new Actions(web);--Actions class
+action.moveToElement(web.findElement(By.xpath("//span[@class='nav-line-2']"))).contextClick().build().perform()--contextclick means right click
+
+web.switchTo().frame(0);--frame
+
+Select sel=new Select(web.findElement(By.id("ctl00_mainContent_ddl_Adult")));--select from drop downs
+sel.selectByIndex(3);
+
+
+*Implicit wait
+web.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);--implicit wait
+
+*Explicit wait
+WebDriverWait wait = new WebDriverWait(web, 5);
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".promoCode")));
+
+*Alert
+web.switchTo().alert().accept();
+web.switchTo().alert().getText().contains("nani")
+
+**Excel
+FileInputStream file = new FileInputStream("C://Users//chinni//Desktop//login_details.xlsx");
+XSSFWorkbook excel = new XSSFWorkbook(file);
+XSSFSheet sheet = excel.getSheetAt(i);
+Iterator<Row> row = sheet.iterator();
+Row first = row.next();
+Iterator<Cell> c = first.cellIterator();
+
+**JavaScript executor
+JavascriptExecutor java= (JavascriptExecutor)web;
+		String value="return document.getElementById(\"fromPlaceName\").value;";
+		String text=(String) java.executeScript(value);
+
+**Screenshot
+File src=((TakesScreenshot)web).getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(src, new File("C://users//chinni//Screenshot.png"));
+
+**SeleniumGrid
+DesiredCapabilities dc= new DesiredCapabilities();
+		dc.setBrowserName("chrome");
+        dc.setPlatform(Platform.WINDOWS);
+        WebDriver web=new RemoteWebDriver(new URL("https://localhost:4444/wd/console"),dc);
+
+
+**Collection sort & reverse
+Collections.sort(duplicateArray);
+	    Collections.reverse(duplicateArray);
+
+*Assert.assertEquals(original_array,duplicateArray,"array are not equal");
+
+*Sibling element (By.xpath("(//div[text()='Extras'])[1]/following-sibling::div[1]")
+
+**Logger
+private static final Logger log1=  LogManager.getLogger(Demo1.class);
+log1.debug, fatal, info, error
+
+
+
+Forward Traversing
+//table/tbody/tr[2]/td[2]
+
+Backward Traversing
+//td[text()=’Unix’]/../../..
+
+child to parent and to sibbling node(Independent to parent to dependent)
+//td[text()=’Java’]/../td[3]
+//td[text()=’Ruby’]/..//a[text()=’Download’]
+//a[text()='Billable']/..//a[text()='set by default'
+
+Xpath By Group Index
+(//div[@class=’popup_menu_arrow’])[3]]
+//a – Matches with all the links present in the entire web page
+//a[1]- Matches with all the first link
+(//a)[1] – Matches with only the first link
+(//input[@type=’checkbox’])[last()] - Matches with the last checkbox
+(//img)[1]|(//img)[last()]--lists first & last images
+
+
+Xpath to CSS selector path
+//input[@id=’UN’] → input #UN or #UN --- for id css path
+input.UN --for class attribute
+//a → a
+//table/tbody → table>tbody
+//table//td → table td
+//*[@id=’UN’] → #UN
+//*[@class=’UN’] → .UN
+
+XPath & Css difference
+In ‘cssSelector’ we can’t identify the element using its text and cssSelector do not support backward traversing. We can’t use independent dependent concept.
+//table/.. → Not possible
+//a[text()=’abc’] → Not possible
+
+To get Textbox value
+WebElement tv=driver.findElement(By.id("t3")); 
+String printText=tv.getAttribute("value");
+
+To delete textbox content
+ele.sendKeys(Keys.CONTROL + "a");
+ele.sendKeys(Keys.DELETE);
+
+To execute exe file
+Runtime.getRuntime().exec("C:/Windows/system32/calc.exe");
+
+TO delete All cookies
+driver.manage().deleteAllCookies();
+
+Dimensions 
+Dimension ele1=ele.getSize();--to get height and width
+
+Points
+Points P=ele.getLocation();--to get coordinates(x,y)
+
+getCssValue("color")
+
+getCssValue("font-size")
+
+Attributes used for Webelement
+i.  clear()
+ii. click()
+iii. getAttribute()
+iv. getCssValue()
+v. getLocation()
+vi. getSize()
+vii. getText()
+viii. isDisplayed()
+ix. isEnabled()
+x. isSelected()
+xi. sendkeys()
+xii. submit()
+
+
+JavaScript Executer code to click
+String c="document.getElementById('loginButton').click()"; 
+r.executeScript(c);
+
+JavaScript Executer code to enter text in textbox
+String c="document.getElementById('username').value='admin'";
+
+JavaScript Executer code to empty text in textbox
+String c="document.getElementById('username').value=''";
+
+To Scroll to axis
+String s="window.scrollTo(0,"+y+")"; r.executeScript(s);
+
+Screenshot code
+EventFiringWebDriver fire= new EventFiringWebDriver(web);
+		
+		File f=fire.getScreenshotAs(OutputType.FILE);
+		
+		File g= new File("C:\\Hemanth\\Eclipse\\Automation\\Screenshots\\image.png");
+		
+		FileUtils.copyFile(f, g);
+
+Select 
+Select select=new Select(listBox);
+boolean v = select.isMultiple();
+
+1. selectByVisibleText(str) > takes string argument
+2. selectByIndex(int) > takes integer argument
+3. selectByValue(str) > takes string argument
+
+
+Deselect is used only for multiple select option
+
+
+*If we add duplicate element in set it returns false
+if(allText.add(text)==false)
+{
+System.out.println(text); //print duplicate
+}
+
+
+*contextclick, Drag & Drop, DoubleClick belongs lo actions class
+
+*Hiding the data and binding with methods is called as Encapsulation
+
+*POM is one of the java designing pattern to develop and test webpage.
+
+*Encapsulation can be achieved through PageObjectModel(POM)
+
+* Object Repository It is the location where we store the objects(elements)
+
+* Page Object Repository It is the location where we store the elements present on the page
+
+Limitations of FindBy
+We cannot use variables in place of locatorvalue in the FindBy Annotation
+
+TestNG--Test Next Generation
+It is unit testing framework. Basically TestNG is used by developers to perform unit testing and it is also 
+used in selenium to perform BlackBox testing.
+
+- Run multiple test classes 
+- Generate Reports 
+- Rerun only failed classes etc
+
+- While creating TestNG class we should not use
+i. Default package 
+ii. No main() method 
+iii. No System.out.println
+
+*Reporter.log("Welcome to testNG", true);--reporter class is used instead of println
+
+*Failed testcases are runned using TestNG-Failed.xml file present in test-output folder
+
+*Test methods runs based on the alphabetical order
+
+*If the priority is duplicate then those methods will be executed in alphabetical order.(priority default is 0)
+
+*We can specify –ve value for priority and it will execute them in ascending order.(-n,-4,----,-1)
+
+*Using invocationCount we can run a test method multiple times, default invocationCount is 1
+
+@Test – this indicates test method.
+@BeforeMethod – this method will be executed before the execution of every test methods.
+@AfterMethod – this method is executed after execution of every method
+@BeforeClass – this method is executed only once at the beginning of the class
+@AfterClass – this method is executed only once at the end of the class
+
+*dependsonMethods option is for the method depends on another
+
+*If both primary and dependency are specified which one will be used?
+Ans: dependency
+
+*All methods in Assert class are static, if we want to execute after fail also then we need to use softassert(all methods are not static )
+*SoftAssert ass= new SoftAssert();
+*To update status of the comparison into the result window we should use assertAll() method. 
+*Any statement after assertAll() method will not be executed if comparison fails
+
+Based on the design framework is catogarized into following types:
+1. Method-driven Automation Framework 
+2. Data-driven Automation Framework 
+3. Module-driven Automation framework 
+4. Keyword-driven Automation framework 
+5. Hybrid Automation Framework 
+
+
+*Frames web.switchTo().defaultContent() or parentframe; ---to come to main page
+*If page is refreashed then control goes to main page from frame
+
+*Executing the script by calling the methods present in the frameworks is called as ‘Method Driven Framework’.
+
+*Jar files required for data driven framework
+1. poi-3.13-20150929 
+2. poi-ooxml-3.13-20150929 
+3. poi-ooxml-schemas-3.13-20150929 
+4. xmlbeans-2.6.0 
+
+poi-4.1.2.jar poi-ooxml-4.1.2.jar poi-ooxml-schemas-4.1.2.jar xmlbeans-3.1.0.jar for perfect excel jar files
+
+*getLastRowNum() method which returns the index of the last row.
+
+*getLastCellNum() method which returns the count and not the index.
+
+Parameter code
+*public void test(XmlTest c)--in method parameter
+*c.getAllParameters();---methods will be available
+
+Selenium Grid
+To run automation scripts on multiple browsers on multiple environments (remote computers) we can use Selenium Grid.
+
+In Selenium Grid, we will have two types of systems:
+1. Hub – it is the computer where framework is present and we start the execution from this
+computer, after the execution result is also stored in this system. Selenium grid has only 
+one Hub.
+
+2. Node – Node refers to remote computer on which actual execution happens. In Selenium grid
+there could be one or more node communicating with the hub . To implement this concept, we 
+should perform following steps 
+a. Start the hub 
+b. Start the node 
+c. Execute Framework using RemoteWebDriver.
+
+
+Jenkins Process
+*Tester stores the code in TestScript Repository and developers in Software configuration management
+
+1. Every day automation engineers will convert manual testcases into Automation scripts and store 
+them in TSR. 
+2. Developer writes code in their local system and stores them in SCM and it is detected by Jenkins 
+which will creates a build and installs it in Build Server. 
+3. After installing the build and it will execute the batch file.
+4. Batch file will execute TestNg suite file (testng.xml).
+
+*The framework is developed using TestNG, POM and Exel libraty. It is a combination of Data-Driven 
+and Method-Driver framework, which we call it as Hybrid Framework.
+
+With respect to Selenium we can categorize the popup into following types:
+1. Hidden Division Popup(Calender popup in website)
+2. Alert and Confirmation Popup(Using Alert class we can accept or dismiss the alert)
+3. File Upload Popup (To upload file using send keys)
+4. File Download Popup (To download file)
+5. Child Browser Popup (Mutilple child window handling)
+6. Window Popup()
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
 
 
 
